@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Udyam Certificate OCR API | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="pan-gst.css" />
+</head>
+<body class="api-detail-page">
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-shell" aria-label="Udyam Certificate OCR API details">
+    <section class="detail-hero reveal">
+      <p class="detail-kicker">Udyam Certificate OCR API</p>
+      <h1>Udyam Certificate OCR API</h1>
+      <p>Extract business details from Udyam certificates using OCR. Simplify MSME verification and compliance.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+
+      <ul class="hero-point-list">
+        <li><strong>Intelligent Matching:</strong> Advanced algorithms analyze variations, spelling differences, and phonetic similarities to determine name matches.</li>
+        <li><strong>Fraud Detection:</strong> Reduce false positives and ensure accurate identity matching across documents and databases.</li>
+        <li><strong>API-Driven Automation:</strong> Fully automated, API-driven service. Integrate seamlessly into your existing workflows and systems.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Automated MSME Certificate Data Extraction via OCR Technology</h2>
+      <ul class="clean-list">
+        <li>Udyam Registration Number (MSME registration number)</li>
+        <li>Enterprise Name (Business name)</li>
+        <li>Business Type (Micro, Small, or Medium)</li>
+        <li>Registration Date (Date of Udyam registration)</li>
+        <li>Business Address (Registered address)</li>
+      </ul>
+    </section>
+
+    <section class="detail-grid reveal">
+      <article class="status-card">
+        <h3>Udyam OCR API</h3>
+        <ul class="status-list">
+          <li><strong>Udyam Number:</strong> <span>UDYAM-TN-00-0000000</span></li>
+          <li><strong>Enterprise Name:</strong> <span>ABC Enterprises</span></li>
+          <li><strong>Business Type:</strong> <span>Micro</span></li>
+          <li><strong>Result:</strong> <span>View detailed results</span></li>
+        </ul>
+      </article>
+
+      <article class="status-card" id="request-demo">
+        <h3>Request Demo</h3>
+        <p>Click below and submit your details to get Udyam Certificate OCR API access.</p>
+        <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+      </article>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What is Udyam Certificate OCR?</h2>
+      <p>The Udyam (MSME) Extract API enables real-time verification of Micro, Small, and Medium Enterprise (MSME) registration details directly from official Udyam registration records maintained by the Government of India. The API allows lenders, financial institutions, and enterprises to authenticate the legitimacy of a business by validating its registration status, enterprise classification, and ownership informationâ€”ensuring regulatory alignment and stronger risk assessment at the time of onboarding or credit evaluation.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What Information Does the API Extract?</h2>
+      <p>The API securely retrieves verified MSME data, enabling accurate business verification and compliance validation.</p>
+      <ul class="detail-list">
+        <li>Udyam Registration Number (URN)</li>
+        <li>Enterprise Name</li>
+        <li>Type of Enterprise (Micro / Small / Medium)</li>
+        <li>Registration Status (Active / Inactive)</li>
+        <li>Date of Registration</li>
+        <li>Business Activity Type (Manufacturing / Services)</li>
+        <li>Ownership / Proprietor or Entity Details</li>
+        <li>Registered Address</li>
+        <li>Linked PAN Details (where applicable)</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>How to Interpret the API Results</h2>
+      <p>The API response provides structured insights that help teams understand Udyam registration outcomes and make informed onboarding and risk decisions.</p>
+
+      <h3>1. Registration Status</h3>
+      <ul class="detail-list">
+        <li><strong>Active:</strong> The enterprise is officially registered and valid under Udyam.</li>
+        <li><strong>Inactive / Not Found:</strong> The business may not be registered, or the details provided are incorrect or outdated.</li>
+        <li><strong>Significance:</strong> Confirms whether the business is legally recognized as an MSME.</li>
+      </ul>
+
+      <h3>2. Enterprise Classification</h3>
+      <ul class="detail-list">
+        <li>Micro / Small / Medium, based on investment and turnover thresholds defined by MSME regulations.</li>
+        <li><strong>Significance:</strong> Determines eligibility for MSME-specific lending programs, pricing, credit policies, and government benefits.</li>
+      </ul>
+
+      <h3>3. Ownership &amp; Entity Details</h3>
+      <ul class="detail-list">
+        <li>Validates the name of the proprietor, partner, or entity against official records.</li>
+        <li><strong>Significance:</strong> Helps detect mismatches, impersonation risks, or misrepresentation during onboarding.</li>
+      </ul>
+
+      <h3>4. Business Activity Type</h3>
+      <ul class="detail-list">
+        <li>Manufacturing or Services classification.</li>
+        <li><strong>Significance:</strong> Supports sector-specific risk analysis, underwriting logic, and policy alignment.</li>
+      </ul>
+
+      <h3>5. Registration Date &amp; Continuity</h3>
+      <ul class="detail-list">
+        <li>Indicates how long the enterprise has been registered under Udyam.</li>
+        <li><strong>Significance:</strong> Longer registration history often correlates with operational stability and lower risk.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Why Udyam Verification Matters</h2>
+      <p>Udyam verification plays a critical role in establishing trust, improving risk assessment, and ensuring regulatory compliance across MSME-focused workflows.</p>
+
+      <h3>Strengthens Business Legitimacy</h3>
+      <p>Ensures that only genuine, government-registered MSMEs are onboarded into lending, partner, or vendor ecosystems.</p>
+
+      <h3>Enables Accurate Credit Assessment</h3>
+      <p>Provides reliable inputs for credit scoring, risk segmentation, and policy-based decisioning.</p>
+
+      <h3>Reduces Fraud &amp; Misrepresentation</h3>
+      <p>Prevents false claims of MSME status and detects inconsistencies in business identity.</p>
+
+      <h3>Supports Regulatory &amp; Compliance Needs</h3>
+      <p>Aligns onboarding processes with regulatory expectations and audit readiness.</p>
+
+      <h3>Improves Operational Efficiency</h3>
+      <p>Automates MSME verification, reducing manual checks and turnaround time.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Key Use Cases</h2>
+      <ul class="detail-list">
+        <li>MSME loan origination and underwriting</li>
+        <li>Vendor and merchant onboarding</li>
+        <li>Supply chain partner validation</li>
+        <li>Government scheme eligibility checks</li>
+        <li>Risk and compliance screening</li>
+      </ul>
+    </section>
+
+    <section class="cta-block reveal">
+      <h2>Ready to Get Started?</h2>
+      <p>Experience our Udyam Certificate OCR API with a free demo.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="pgAccessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pgAccessTitle">
+      <button class="modal-close" type="button" id="pgCloseAccessModal" aria-label="Close request form">x</button>
+      <h2 id="pgAccessTitle">Request Demo</h2>
+
+      <form class="access-form" id="pgAccessForm" novalidate>
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="pgMobileNumber" name="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="pgMobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="company" />
+        </label>
+        <p class="form-status" id="pgFormStatus" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="pgCancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit Request</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="pgBackToTop" aria-label="Back to top">Top</button>
+  <script src="pan-gst.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aboutus.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero-area about-page-main" aria-label="About Vlink content">
+    <section class="hero-card reveal" id="about-vlink">
+      <p class="hero-kicker">About Vlink</p>
+      <h1>Secure, Scalable, and Cost-Efficient Verification APIs</h1>
+      <p class="hero-copy">Vlink delivers a robust suite of secure and scalable verification APIs that enable organizations to strengthen customer onboarding, enhance compliance accuracy, and accelerate risk-informed decision-making.</p>
+      <p class="hero-copy">Our solutions are designed to meet the operational and regulatory demands of financial institutions, fintech platforms, insurance providers, and enterprises, offering market-leading capabilities at a significantly lower cost.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+
+    <section class="content-section reveal" id="about-us-details">
+      <h2>About Us</h2>
+      <p>
+        Vlink is a technology-driven verification solutions provider offering a robust suite of secure, scalable, and compliance-ready verification APIs. We enable organizations to strengthen customer onboarding, enhance compliance accuracy, and accelerate risk-informed decision-making across the customer lifecycle.
+      </p>
+      <p>
+        Our solutions are purpose-built to meet the evolving operational and regulatory requirements of financial institutions, fintech platforms, insurance providers, and enterprises. By delivering market-leading verification capabilities at a significantly lower cost, vLink helps organizations optimize efficiency without compromising reliability, accuracy, or regulatory adherence.
+      </p>
+    </section>
+
+    <section class="company-overview reveal" id="vision-mission">
+      <div class="overview-copy">
+        <p class="section-kicker">Our Vision</p>
+        <h2>Trusted verification technology for frictionless onboarding.</h2>
+        <p>
+          To be a trusted verification technology partner enabling secure, compliant, and frictionless digital onboarding across industries, while setting new benchmarks in cost efficiency and data integrity.
+        </p>
+      </div>
+      <div class="overview-grid">
+        <article class="overview-card">
+          <h3>Our Mission</h3>
+          <p>
+            Our mission is to empower organizations with high-performance verification APIs that simplify onboarding, strengthen compliance frameworks, and support confident business decisions through innovation, security, and responsible data usage.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="api-capabilities-about">
+      <h2>Our API Capabilities</h2>
+      <p class="section-subtitle">We provide end-to-end verification solutions covering identity, business authenticity, and financial credibility:</p>
+      <div class="api-grid">
+        <article class="api-card">
+          <h4>Email Verification API</h4>
+          <p>Validates email authenticity to reduce fraud, improve communication reliability, and enhance data quality.</p>
+        </article>
+        <article class="api-card">
+          <h4>PAN-GST Verification API</h4>
+          <p>Enables real-time verification of PAN details and retrieves linked GST information to validate individual and business identities.</p>
+        </article>
+        <article class="api-card">
+          <h4>Aadhaar Extract API</h4>
+          <p>Securely extracts and verifies Aadhaar data for identity confirmation, supporting compliant onboarding workflows.</p>
+        </article>
+        <article class="api-card">
+          <h4>Udyam (MSME) Extract API</h4>
+          <p>Verifies MSME registration details directly from Udyam records to confirm business legitimacy.</p>
+        </article>
+        <article class="api-card">
+          <h4>Name Verification API</h4>
+          <p>Matches names across multiple data points to improve identity accuracy and reduce manual verification efforts.</p>
+        </article>
+        <article class="api-card">
+          <h4>Bank Statement Analyser</h4>
+          <p>Analyzes bank statements to assess financial behavior, cash flow patterns, and overall credit worthiness.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="key-value-proposition">
+      <h2>Key Value Proposition</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Equivalent to Leading Market Providers</h3>
+          <p>Delivers the same verification capabilities as top industry vendors.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Significant Cost Advantage</h3>
+          <p>We deliver the same service capabilities as top verification providers, at a significantly lower cost, helping you optimize operational expenses without compromising quality or reliability.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Compliance-First Architecture</h3>
+          <p>Built in alignment with statutory, regulatory, and data protection requirements.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Scalable and Integration-Ready</h3>
+          <p>Designed for high-volume usage with seamless system integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="trust-security">
+      <h2>Trust, Security and Compliance</h2>
+      <p class="section-subtitle">Built for Regulatory Confidence</p>
+      <ul class="clean-list">
+        <li>Secure data transmission</li>
+        <li>Confidential handling of sensitive information</li>
+        <li>Responsible and compliant API usage</li>
+      </ul>
+    </section>
+
+    <section class="content-section reveal" id="commitment">
+      <h2>Our Commitment</h2>
+      <p>
+        To help you evaluate our data accuracy, response structure, and performance, we offer a free demo of our APIs. This allows your team to assess suitability and integration readiness before moving forward.
+      </p>
+    </section>
+
+    <section class="content-section reveal" id="engage-with-us">
+      <h2>Engage With Us</h2>
+      <p>
+        We welcome the opportunity to understand your specific requirements and demonstrate how vLink's verification APIs can enhance onboarding efficiency, compliance accuracy, and business growth. Contact us today to schedule a demonstration or connect with our solutions team.
+      </p>
+      <h3>Ready to Get Started?</h3>
+      <p>Experience our verification APIs with a free demo.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">&#120143;</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="accessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+      <button class="modal-close" type="button" id="closeAccessModal" aria-label="Close access form">x</button>
+      <h2 id="accessTitle">Request Demo</h2>
+      <p>Share your details and our team will contact you shortly.</p>
+      <form class="access-form" id="accessForm">
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="mobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="companyName" />
+        </label>
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="cancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit</button>
+        </div>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

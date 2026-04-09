@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vlink | Secure & Scalable Verification APIs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero-area" aria-label="Main content">
+    <section class="hero-card reveal" id="home">
+      <p class="hero-kicker">Trusted Verification Infrastructure</p>
+      <h1>Secure &amp; Scalable Verification APIs</h1>
+      <p class="hero-copy">
+        Strengthen customer onboarding, enhance compliance accuracy, and accelerate risk-informed decision-making with our robust suite of verification APIs designed for financial institutions, fintech platforms, insurance providers, and enterprises.
+      </p>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+        <a class="hero-cta secondary" href="#api-capabilities">Our API Capabilities</a>
+      </div>
+
+      <div class="hero-trust-row" aria-label="Trust highlights">
+        <span>Compliance-first</span>
+        <span>Enterprise-ready</span>
+        <span>Fast integration</span>
+      </div>
+
+      <div class="hero-stats" aria-label="API performance highlights">
+        <article class="stat-item">
+          <p class="stat-value">10+</p>
+          <p class="stat-label">Available APIs</p>
+        </article>
+        <article class="stat-item">
+          <p class="stat-value">2</p>
+          <p class="stat-label">Test Environments</p>
+        </article>
+        <article class="stat-item">
+          <p class="stat-value">99.9%</p>
+          <p class="stat-label">Uptime</p>
+        </article>
+        <article class="stat-item">
+          <p class="stat-value">24/7</p>
+          <p class="stat-label">Support</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="trust-strip reveal" aria-label="Trusted sectors">
+      <p class="trust-strip-label">Trusted by teams across regulated industries</p>
+      <div class="trust-logos">
+        <span>Fintech Platforms</span>
+        <span>NBFC Operations</span>
+        <span>Insurance Workflows</span>
+        <span>Enterprise Onboarding</span>
+        <span>Risk &amp; Compliance Teams</span>
+      </div>
+    </section>
+
+    <section class="company-overview reveal" id="company-overview">
+      <div class="overview-copy">
+        <p class="section-kicker">Why Vlink</p>
+        <h2>Built for businesses that need speed, confidence, and compliance in every verification flow.</h2>
+        <p>
+          Vlink helps teams modernize verification operations with APIs that are integration-ready, business-friendly, and designed for regulated environments. From onboarding to fraud checks and financial analysis, our platform reduces manual effort while improving decision accuracy.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <article class="overview-card">
+          <h3>Operational Efficiency</h3>
+          <p>Reduce manual verification delays with APIs designed for fast response, clear output, and simple integration.</p>
+        </article>
+        <article class="overview-card">
+          <h3>Compliance Confidence</h3>
+          <p>Support audit-ready workflows with privacy-aware handling, responsible usage, and structured verification logic.</p>
+        </article>
+        <article class="overview-card">
+          <h3>Enterprise Scalability</h3>
+          <p>Deploy across high-volume onboarding, underwriting, and risk operations without changing core business processes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="value-proposition">
+      <p class="section-kicker">KEY VALUE PROPOSITION</p>
+      <h2>Market-leading verification capabilities at significantly lower cost</h2>
+      <div class="feature-grid" id="valuePropCards">
+        <article class="feature-card is-active" role="button" tabindex="0" aria-pressed="true" data-prop-title="Equivalent to Leading Market Providers" data-prop-description="Delivers the same verification capabilities as top industry vendors." data-prop-tag="Capability Match">
+          <h3>Equivalent to Leading Market Providers</h3>
+          <p>Delivers the same verification capabilities as top industry vendors.</p>
+        </article>
+        <article class="feature-card" role="button" tabindex="0" aria-pressed="false" data-prop-title="Scalable &amp; Integration-Ready" data-prop-description="Designed for high-volume usage with seamless system integration." data-prop-tag="Scale Ready">
+          <h3>Scalable &amp; Integration-Ready</h3>
+          <p>Designed for high-volume usage with seamless system integration.</p>
+        </article>
+        <article class="feature-card" role="button" tabindex="0" aria-pressed="false" data-prop-title="Compliance-First Design" data-prop-description="Built in alignment with statutory, regulatory, and data protection requirements." data-prop-tag="Regulatory Alignment">
+          <h3>Compliance-First Design</h3>
+          <p>Built in alignment with statutory, regulatory, and data protection requirements.</p>
+        </article>
+        <article class="feature-card" role="button" tabindex="0" aria-pressed="false" data-prop-title="Significant Cost Advantage" data-prop-description="We deliver the same service capabilities as top verification providers, at a significantly lower cost, helping you optimize operational expenses without compromising quality or reliability." data-prop-tag="Cost Efficiency">
+          <h3>Significant Cost Advantage</h3>
+          <p>We deliver the same service capabilities as top verification providers, at a significantly lower cost, helping you optimize operational expenses without compromising quality or reliability.</p>
+        </article>
+      </div>
+
+      <aside class="value-prop-detail" id="valuePropDetail" aria-live="polite">
+        <p class="value-prop-tag" id="valuePropTag">Capability Match</p>
+        <h3 id="valuePropTitle">Equivalent to Leading Market Providers</h3>
+        <p id="valuePropText">Delivers the same verification capabilities as top industry vendors.</p>
+      </aside>
+    </section>
+
+    <section class="content-section reveal" id="trust-overview">
+      <h2>Trust, Security &amp; Compliance</h2>
+      <p class="section-subtitle">Built for Regulatory Confidence</p>
+      <ul class="clean-list">
+        <li>Secure data transmission</li>
+        <li>Confidential handling of sensitive information</li>
+        <li>Responsible and compliant API usage</li>
+      </ul>
+    </section>
+
+    <section class="content-section reveal" id="api-capabilities">
+      <h2>Our API Capabilities</h2>
+      <p class="section-subtitle">End-to-end verification solutions covering identity, business authenticity, and financial credibility</p>
+
+      <div class="filter-row" aria-label="API category filters">
+        <button class="filter-chip active" type="button" data-filter="all">All APIs</button>
+        <button class="filter-chip" type="button" data-filter="identity">Identity</button>
+        <button class="filter-chip" type="button" data-filter="business">Government and Business</button>
+        <button class="filter-chip" type="button" data-filter="financial">Financial</button>
+      </div>
+
+      <div class="capability-group" id="identity-contact">
+        <h3>Identity &amp; Contact Verification</h3>
+        <div class="api-grid">
+          <article class="api-card" id="email-verification" data-category="identity">
+            <h4>Email Verification API</h4>
+            <p>Ensures email authenticity to reduce fraud, improve data accuracy, and enable reliable customer communication.</p>
+          </article>
+          <article class="api-card" id="name-verification" data-category="identity">
+            <h4>Name Verification API</h4>
+            <p>Accurately matches names across data sources to minimize discrepancies and manual verification efforts.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="capability-group" id="gov-business">
+        <h3>Government &amp; Business Verification</h3>
+        <div class="api-grid">
+          <article class="api-card" id="pan-gst" data-category="business">
+            <h4>PAN-GST Verification API</h4>
+            <p>Provides real-time PAN validation and retrieves linked GST details to confirm individual and business identities.</p>
+            <a class="inline-api-link" href="pan-gst.html">View PAN-GST API Details</a>
+          </article>
+          <article class="api-card" id="aadhaar-extract" data-category="business">
+            <h4>Aadhaar Extract API</h4>
+            <p>Securely extracts Aadhaar data to support compliant identity verification processes.</p>
+          </article>
+          <article class="api-card" id="udyam-extract" data-category="business">
+            <h4>Udyam (MSME) Extract API</h4>
+            <p>Validates MSME registration details from official Udyam records to establish business legitimacy.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="capability-group" id="financial-assessment">
+        <h3>Financial Assessment</h3>
+        <div class="api-grid">
+          <article class="api-card" id="bank-statement" data-category="financial">
+            <h4>Bank Statement Analyser</h4>
+            <p>Delivers structured insights into cash flows, transaction behavior, and financial health to support credit and risk assessment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="trust-detailed">
+      <h2>Trust, Security &amp; Compliance</h2>
+      <p class="section-subtitle">Built for Regulatory Confidence</p>
+      <p>All our APIs are developed and operated with a privacy-by-design approach, ensuring:</p>
+      <ul class="clean-list">
+        <li>Secure Data Transmission</li>
+        <li>Confidential Handling</li>
+        <li>Responsible &amp; Compliant Usage</li>
+      </ul>
+    </section>
+
+    <section class="content-section reveal" id="demo">
+      <h2>Free Demo &amp; Evaluation Access</h2>
+      <p>
+        To support informed decision-making, we provide free demo access to our APIs. This allows your teams to evaluate:
+      </p>
+      <ul class="clean-list">
+        <li>Data accuracy</li>
+        <li>API response structure</li>
+        <li>Integration compatibility</li>
+      </ul>
+      <p>before proceeding with commercial deployment.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+
+      <div class="contact-panel">
+        <article class="contact-card">
+          <h3>Business Email</h3>
+          <p>sales@vlink.example</p>
+        </article>
+        <article class="contact-card">
+          <h3>Response Window</h3>
+          <p>Within 1 business day for demo requests and API evaluation support.</p>
+        </article>
+        <article class="contact-card">
+          <h3>Best For</h3>
+          <p>Product teams, operations heads, compliance teams, and enterprise onboarding leaders.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section reveal" id="integration-ready">
+      <h2>Integration Ready</h2>
+      <div class="code-tabs" role="tablist" aria-label="Code language tabs">
+        <button class="code-tab active" type="button" role="tab" aria-selected="true" data-lang="curl">cURL</button>
+        <button class="code-tab" type="button" role="tab" aria-selected="false" data-lang="python">Python</button>
+        <button class="code-tab" type="button" role="tab" aria-selected="false" data-lang="javascript">JavaScript</button>
+        <button class="code-tab" type="button" role="tab" aria-selected="false" data-lang="java">Java</button>
+        <button class="code-tab" type="button" role="tab" aria-selected="false" data-lang="dotnet">.NET</button>
+      </div>
+
+      <pre class="code-block"><code id="integrationCode">curl --location 'https://api.vlink.com/pan' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer YOUR_API_KEY' \
+--data '{
+  "document_base64": "base64_encoded_image"
+}'</code></pre>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">&#120143;</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="accessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+      <button class="modal-close" type="button" id="closeAccessModal" aria-label="Close access form">x</button>
+      <h2 id="accessTitle">Request Demo</h2>
+      <p>Share your details and our team will contact you shortly.</p>
+      <form class="access-form" id="accessForm">
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="mobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="companyName" />
+        </label>
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="cancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit</button>
+        </div>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

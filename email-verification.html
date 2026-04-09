@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Verification API | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="pan-gst.css" />
+</head>
+<body class="api-detail-page">
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-shell" aria-label="Email Verification API details">
+    <section class="detail-hero reveal">
+      <p class="detail-kicker">Email Verification API</p>
+      <h1>Email Verification API</h1>
+      <p>Validates email authenticity to reduce fraud, improve communication reliability, and enhance data quality.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+
+      <ul class="hero-point-list">
+        <li><strong>Higher Deliverability:</strong> Reduce bounces and improve deliverability by validating addresses before sending.</li>
+        <li><strong>Reduce Fake Signups:</strong> Block disposable and invalid emails to reduce spam and fraudulent registrations.</li>
+        <li><strong>API-Driven Automation:</strong> Fully automated API workflow for real-time integration.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Comprehensive Email Validation via MX, Domain &amp; Inbox Checks</h2>
+      <ul class="clean-list">
+        <li>MX Record Check (Mail Exchange server validation)</li>
+        <li>Domain Validation (Domain existence and configuration)</li>
+        <li>Inbox Availability (Mailbox existence check)</li>
+        <li>Syntax Validation (Email format verification)</li>
+        <li>Deliverability Score (Email sending success probability)</li>
+      </ul>
+    </section>
+
+    <section class="detail-grid reveal">
+      <article class="status-card">
+        <h3>Email Verification API</h3>
+        <ul class="status-list">
+          <li><strong>Status:</strong> <span>Valid</span></li>
+          <li><strong>MX Record:</strong> <span>Verified</span></li>
+          <li><strong>Domain:</strong> <span>Active</span></li>
+          <li><strong>Result:</strong> <span>View detailed results</span></li>
+        </ul>
+      </article>
+
+      <article class="status-card" id="request-demo">
+        <h3>Request Demo</h3>
+        <p>Click below and submit your details to get Email Verification API access.</p>
+        <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+      </article>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What is Email Verification?</h2>
+      <p>Email verification is the process of validating whether an email address is authentic, active, and capable of receiving messages. The Email Verification API performs this validation in real time at the point of data capture, helping organizations ensure that email addresses provided by users are genuine and usable.</p>
+      <p>By filtering out disposable, inactive, or invalid email IDs, the API improves data quality, reduces communication failures, and mitigates fraud risks across digital onboarding and engagement workflows.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What the Email Verification API Checks</h2>
+      <ul class="detail-list">
+        <li><strong>Format &amp; Syntax Validity:</strong> Confirms whether the email follows standard formatting rules.</li>
+        <li><strong>Domain Validity:</strong> Verifies that the domain exists and is properly configured to receive emails.</li>
+        <li><strong>Mailbox Deliverability:</strong> Assesses whether the email address can successfully receive messages.</li>
+        <li><strong>Disposable &amp; Temporary Email Detection:</strong> Identifies one-time or fraudulent-use addresses.</li>
+        <li><strong>Role-Based Email Identification:</strong> Flags generic addresses like info@, admin@, and support@.</li>
+        <li><strong>Real-Time Integration:</strong> Integrate validation at point of capture for stronger data quality.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Interpreting Verification Results</h2>
+      <ul class="detail-list">
+        <li><strong>Valid:</strong> Email is authentic, active, and deliverable. Safe for onboarding and communication.</li>
+        <li><strong>Invalid:</strong> Email does not exist or cannot receive messages. Should be rejected.</li>
+        <li><strong>Disposable / Temporary:</strong> Short-term address with higher fraud risk. Recommend blocking.</li>
+        <li><strong>Inactive / Undeliverable:</strong> Mailbox unreachable or dormant. Impacts communication reliability.</li>
+        <li><strong>Role-Based:</strong> Generic address not tied to an individual. May need extra identity checks.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block reveal">
+      <h2>Ready to Get Started?</h2>
+      <p>Experience our Email Verification API with a free demo.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="pgAccessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pgAccessTitle">
+      <button class="modal-close" type="button" id="pgCloseAccessModal" aria-label="Close request form">x</button>
+      <h2 id="pgAccessTitle">Request Demo</h2>
+
+      <form class="access-form" id="pgAccessForm" novalidate>
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="pgMobileNumber" name="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="pgMobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="company" />
+        </label>
+        <p class="form-status" id="pgFormStatus" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="pgCancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit Request</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="pgBackToTop" aria-label="Back to top">Top</button>
+  <script src="pan-gst.js"></script>
+</body>
+</html>
+
+
+

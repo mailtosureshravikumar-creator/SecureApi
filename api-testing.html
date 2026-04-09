@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Testing | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="api-testing.css?v=20260409b" />
+  <script>
+    if (!sessionStorage.getItem('vlinkLoggedIn')) {
+      window.location.replace('login.html');
+    }
+  </script>
+</head>
+<body>
+  <header class="app-header" id="siteHeader">
+    <div class="app-header-shell">
+      <a class="app-brand" href="dashboard.html" aria-label="Vlink dashboard">
+        <span class="app-brand-v">V</span>
+        <span class="app-brand-text">Link</span>
+      </a>
+
+      <div class="app-account" id="appAccount">
+        <button class="app-user-chip" id="headerAccountBtn" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span id="headerUserEmail">user@example.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+
+        <div class="account-dropdown" id="accountDropdown" role="menu" hidden>
+          <p class="account-title">WELCOME, <span id="accountWelcomeEmail">USER@EXAMPLE.COM</span></p>
+
+          <a class="account-item" href="dashboard.html" role="menuitem">
+            <span class="account-item-icon">◌</span>
+            <span>Dashboard</span>
+          </a>
+          <a class="account-item" href="admin-panel-login.html" role="menuitem">
+            <span class="account-item-icon">⚙</span>
+            <span>Admin Panel</span>
+          </a>
+          <button class="account-item" type="button" role="menuitem">
+            <span class="account-item-icon">⊕</span>
+            <span>Register User</span>
+          </button>
+          <button class="account-item" type="button" role="menuitem">
+            <span class="account-item-icon">◍</span>
+            <span>Reset Password</span>
+          </button>
+          <button class="account-item" type="button" role="menuitem">
+            <span class="account-item-icon">◎</span>
+            <span>Leads Management</span>
+          </button>
+          <a class="account-item" href="change-password.html" role="menuitem" id="dropdownChangePasswordBtn">
+            <span class="account-item-icon">⌂</span>
+            <span>Change Password</span>
+          </a>
+
+          <button class="account-item account-item-logout" id="logoutAction" type="button" role="menuitem">
+            <span class="account-item-icon">↪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="api-test-main" aria-label="API testing page">
+    <aside class="api-side" aria-label="Available APIs">
+      <h2>Available APIs</h2>
+      <ul class="api-side-list">
+        <li>
+          <span>PAN-GST Link Verification</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="pan-gst">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="pan-gst">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>GST Number Search</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="gst-search">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="gst-search">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>Email Verification</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="email">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="email">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>Name Similarity Match</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="name">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="name">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>PAN Verification</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="pan-verification">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="pan-verification">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>Company Name Search</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="company-search">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="company-search">Verification</button>
+          </div>
+        </li>
+        <li>
+          <span>PAN OCR</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="pan-ocr">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="pan-ocr">OCR</button>
+          </div>
+        </li>
+        <li>
+          <span>Aadhaar OCR</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="aadhaar-ocr">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="aadhaar-ocr">OCR</button>
+          </div>
+        </li>
+        <li>
+          <span>Udyam OCR</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="udyam-ocr">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="udyam-ocr">OCR</button>
+          </div>
+        </li>
+        <li>
+          <span>GST Certificate OCR</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="gst-certificate-ocr">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="gst-certificate-ocr">OCR</button>
+          </div>
+        </li>
+        <li>
+          <span>Bank Statement Extraction</span>
+          <div class="api-side-actions">
+            <button class="api-side-btn post" type="button" data-api-key="bank-statement">POST</button>
+            <button class="api-side-btn verify" type="button" data-api-key="bank-statement">Verification</button>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="api-content" aria-label="API details and testing interface">
+      <button class="back-btn" id="backToDashboardBtn" type="button">Back to Dashboard</button>
+
+      <article class="api-card details-card">
+        <h3>API DETAILS</h3>
+        <h4 id="detailsName">PAN-GST Link Verification</h4>
+        <p id="detailsDescription">Verify PAN and link GST status. Check if a PAN is linked to one or more GSTs and retrieve detailed linkage information with verification status.</p>
+
+        <div class="details-grid">
+          <div class="detail-box">
+            <p>METHOD</p>
+            <strong id="detailsMethod">POST</strong>
+          </div>
+          <div class="detail-box">
+            <p>PATH</p>
+            <strong id="detailsPath">/api/SearchByPan</strong>
+          </div>
+          <div class="detail-box">
+            <p>CATEGORY</p>
+            <strong id="detailsCategory">Verification</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="api-card testing-card">
+        <h3>API TESTING INTERFACE</h3>
+
+        <div class="form-group">
+          <label for="envSelect">Environment:</label>
+          <select id="envSelect" class="field">
+            <option value="uat">UAT</option>
+            <option value="prod">Prod</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="apiInput" id="inputLabel">PAN Number:</label>
+          <input type="text" id="apiInput" class="field" placeholder="e.g. ABCPD1234E" maxlength="10" />
+          <p class="hint" id="inputHint">Enter 10-character PAN (e.g. ABCPD1234E)</p>
+        </div>
+
+        <button class="execute-btn" id="executeBtn" type="button">Execute API button</button>
+
+        <div class="response" id="responseBox" hidden>
+          <p>Response</p>
+          <pre id="responseBody"></pre>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-bottom" aria-label="Legal information"></div>
+  </footer>
+
+  <script src="api-testing.js?v=20260409f"></script>
+</body>
+</html>

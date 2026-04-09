@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin-panel.css" />
+  <script>
+    (function () {
+      var sessionLoggedIn = false;
+      var localLoggedIn = false;
+      var sessionAdminLoggedIn = false;
+      var localAdminLoggedIn = false;
+
+      try {
+        sessionLoggedIn = sessionStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      try {
+        localLoggedIn = localStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      try {
+        var sessionAdminValue = sessionStorage.getItem("vlinkAdminAuthenticated");
+        sessionAdminLoggedIn = sessionAdminValue === "1" || sessionAdminValue === "true";
+      } catch (e) {}
+
+      try {
+        var localAdminValue = localStorage.getItem("vlinkAdminAuthenticated");
+        localAdminLoggedIn = localAdminValue === "1" || localAdminValue === "true";
+      } catch (e) {}
+
+      if (!sessionLoggedIn && localLoggedIn) {
+        try {
+          sessionStorage.setItem("vlinkLoggedIn", "1");
+        } catch (e) {}
+
+        try {
+          var userEmail = localStorage.getItem("vlinkUserEmail") || "";
+          if (userEmail) {
+            sessionStorage.setItem("vlinkUserEmail", userEmail);
+          }
+        } catch (e) {}
+
+        sessionLoggedIn = true;
+      }
+
+      if (!sessionLoggedIn && !localLoggedIn) {
+        window.location.replace("login.html");
+        return;
+      }
+
+      if (!sessionAdminLoggedIn && localAdminLoggedIn) {
+        try {
+          sessionStorage.setItem("vlinkAdminAuthenticated", "1");
+          var adminEmail = localStorage.getItem("vlinkAdminEmail") || "";
+          if (adminEmail) {
+            sessionStorage.setItem("vlinkAdminEmail", adminEmail);
+          }
+        } catch (e) {}
+        sessionAdminLoggedIn = true;
+      }
+
+      if (!sessionAdminLoggedIn && !localAdminLoggedIn) {
+        window.location.replace("admin-panel-login.html");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="app-header" id="siteHeader">
+    <div class="app-header-shell">
+      <a class="app-brand" href="dashboard.html" aria-label="Vlink dashboard">
+        <span class="app-brand-v">V</span>
+        <span class="app-brand-text">Link</span>
+      </a>
+
+      <div class="app-account" id="appAccount">
+        <button class="app-user-chip" id="headerAccountBtn" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span id="headerUserEmail">user@example.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+
+        <div class="account-dropdown" id="accountDropdown" role="menu" hidden>
+          <p class="account-title">WELCOME, <span id="accountWelcomeEmail">USER@EXAMPLE.COM</span></p>
+
+          <a class="account-item" href="dashboard.html" role="menuitem">
+            <span class="account-item-icon">◌</span>
+            <span>Dashboard</span>
+          </a>
+          <a class="account-item is-active" href="admin-panel.html" role="menuitem">
+            <span class="account-item-icon">⚙</span>
+            <span>Admin Panel</span>
+          </a>
+          <a class="account-item" href="register.html" role="menuitem" id="dropdownRegisterUserBtn">
+            <span class="account-item-icon">⊕</span>
+            <span>Register User</span>
+          </a>
+          <a class="account-item" href="reset-password.html" role="menuitem" id="dropdownResetPasswordBtn">
+            <span class="account-item-icon">◍</span>
+            <span>Reset Password</span>
+          </a>
+          <a class="account-item" href="leads-management.html" role="menuitem" id="dropdownLeadsBtn">
+            <span class="account-item-icon">◎</span>
+            <span>Leads Management</span>
+          </a>
+          <a class="account-item" href="change-password.html" role="menuitem" id="dropdownChangePasswordBtn">
+            <span class="account-item-icon">⌂</span>
+            <span>Change Password</span>
+          </a>
+
+          <button class="account-item account-item-logout" id="logoutAction" type="button" role="menuitem">
+            <span class="account-item-icon">↪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main" aria-label="Admin panel">
+    <div id="adminContent">
+      <section class="admin-hero">
+        <div>
+          <p class="admin-kicker">Admin Workspace</p>
+          <h1>Admin Panel - API Management</h1>
+          <p>Manage API catalog entries, review availability, and keep environment mappings up to date.</p>
+        </div>
+
+        <div class="admin-actions">
+          <a class="admin-action-btn secondary" href="register.html" id="registerUserBtn">Register User</a>
+          <button class="admin-action-btn primary" type="button" id="createApiBtn">Create New Api</button>
+        </div>
+      </section>
+
+      <section class="admin-table-card" aria-labelledby="apiManagementTitle">
+        <div class="admin-card-head">
+          <h2 id="apiManagementTitle">API Management</h2>
+          <p>Track endpoints, methods, categories, status, and supported environments from one place.</p>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>API Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>HTTP Method</th>
+                <th>Base Path</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="admin-modal-overlay" id="apiModalOverlay" hidden>
+    <div class="admin-modal-card" role="dialog" aria-modal="true" aria-labelledby="apiModalTitle">
+      <button class="admin-modal-close" id="closeApiModal" type="button" aria-label="Close" onclick="document.getElementById('apiModalOverlay').hidden=true;document.body.classList.remove('modal-open');">×</button>
+      <h2 id="apiModalTitle">Create New API</h2>
+      <form class="admin-form" id="apiForm" novalidate>
+        <input type="hidden" id="apiEditId" />
+        <div class="admin-form-grid is-single">
+          <label>
+            <span>API Name *</span>
+            <input id="apiNameInput" type="text" placeholder="Enter API name" required />
+          </label>
+          <label>
+            <span>Description *</span>
+            <textarea id="apiDescriptionInput" placeholder="Enter API description" rows="4" required style="resize:vertical;"></textarea>
+          </label>
+        </div>
+        <div class="admin-form-grid">
+          <label>
+            <span>Category *</span>
+            <input id="apiCategoryInput" type="text" placeholder="e.g., Payment, Authentication" required />
+          </label>
+          <label>
+            <span>HTTP Method *</span>
+            <select id="apiMethodInput" required>
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+              <option value="PATCH">PATCH</option>
+            </select>
+          </label>
+          <label class="full-span">
+            <span>Base Path *</span>
+            <input id="apiPathInput" type="text" placeholder="e.g., /api/v1/users" required />
+            <span class="admin-field-hint">The API endpoint path (without base URL)</span>
+          </label>
+        </div>
+
+        <div class="admin-form-actions">
+          <button class="admin-action-btn secondary" id="cancelApiModal" type="button" onclick="document.getElementById('apiModalOverlay').hidden=true;document.body.classList.remove('modal-open');">Cancel</button>
+          <button class="admin-action-btn primary" id="saveApiBtn" type="submit">Create API</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-panel.js?v=20260409h"></script>
+</body>
+</html>

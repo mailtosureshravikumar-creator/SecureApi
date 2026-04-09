@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel Login | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin-panel.css" />
+</head>
+<body>
+  <header class="app-header" id="siteHeader">
+    <div class="app-header-shell">
+      <a class="app-brand" href="dashboard.html" aria-label="Vlink dashboard">
+        <span class="app-brand-v">V</span>
+        <span class="app-brand-text">Link</span>
+      </a>
+
+      <div class="app-account" id="appAccount">
+        <button class="app-user-chip" id="headerAccountBtn" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span id="headerUserEmail">user@example.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+
+        <div class="account-dropdown" id="accountDropdown" role="menu" hidden>
+          <p class="account-title">WELCOME, <span id="accountWelcomeEmail">USER@EXAMPLE.COM</span></p>
+
+          <a class="account-item" href="dashboard.html" role="menuitem">
+            <span class="account-item-icon">◌</span>
+            <span>Dashboard</span>
+          </a>
+          <a class="account-item is-active" href="admin-panel-login.html" role="menuitem">
+            <span class="account-item-icon">⚙</span>
+            <span>Admin Panel</span>
+          </a>
+
+          <button class="account-item account-item-logout" id="logoutAction" type="button" role="menuitem">
+            <span class="account-item-icon">↪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main" aria-label="Admin panel login">
+    <section class="admin-auth-shell" id="adminAuthGate">
+      <div class="admin-auth-card">
+        <p class="admin-kicker">Admin Access</p>
+        <h1>Admin Panel Login</h1>
+
+        <form class="admin-form" id="adminLoginForm">
+          <div class="admin-form-grid is-single">
+            <label>
+              <span>Email Id</span>
+              <input id="adminEmailInput" type="email" placeholder="Enter admin email" required />
+            </label>
+            <label>
+              <span>Password</span>
+              <input id="adminPasswordInput" type="password" placeholder="Enter password" required />
+            </label>
+          </div>
+
+          <div class="admin-form-actions is-start">
+            <button class="admin-action-btn primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var sessionLoggedIn = false;
+      var localLoggedIn = false;
+
+      try {
+        sessionLoggedIn = sessionStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      try {
+        localLoggedIn = localStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      if (!sessionLoggedIn && !localLoggedIn) {
+        window.location.replace("login.html");
+        return;
+      }
+
+      if (!sessionLoggedIn && localLoggedIn) {
+        try {
+          sessionStorage.setItem("vlinkLoggedIn", "1");
+          var existingUser = localStorage.getItem("vlinkUserEmail") || "";
+          if (existingUser) {
+            sessionStorage.setItem("vlinkUserEmail", existingUser);
+          }
+        } catch (e) {}
+      }
+
+      var userEmail = "user@example.com";
+      try {
+        userEmail =
+          sessionStorage.getItem("vlinkUserEmail") ||
+          localStorage.getItem("vlinkUserEmail") ||
+          "user@example.com";
+      } catch (e) {}
+
+      var headerUserEmail = document.getElementById("headerUserEmail");
+      var accountWelcomeEmail = document.getElementById("accountWelcomeEmail");
+      if (headerUserEmail) headerUserEmail.textContent = userEmail;
+      if (accountWelcomeEmail) accountWelcomeEmail.textContent = userEmail;
+
+      var appAccount = document.getElementById("appAccount");
+      var headerAccountBtn = document.getElementById("headerAccountBtn");
+      var accountDropdown = document.getElementById("accountDropdown");
+      if (headerAccountBtn && accountDropdown) {
+        headerAccountBtn.addEventListener("click", function () {
+          var isExpanded = headerAccountBtn.getAttribute("aria-expanded") === "true";
+          accountDropdown.hidden = isExpanded;
+          headerAccountBtn.setAttribute("aria-expanded", String(!isExpanded));
+        });
+      }
+
+      document.addEventListener("click", function (event) {
+        if (!appAccount || !accountDropdown || !headerAccountBtn) return;
+        if (!appAccount.contains(event.target)) {
+          accountDropdown.hidden = true;
+          headerAccountBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      var logoutAction = document.getElementById("logoutAction");
+      if (logoutAction) {
+        logoutAction.addEventListener("click", function () {
+          sessionStorage.removeItem("vlinkLoggedIn");
+          sessionStorage.removeItem("vlinkUserEmail");
+          sessionStorage.removeItem("vlinkAdminAuthenticated");
+          sessionStorage.removeItem("vlinkAdminEmail");
+          localStorage.removeItem("vlinkLoggedIn");
+          localStorage.removeItem("vlinkUserEmail");
+          localStorage.removeItem("vlinkAdminAuthenticated");
+          localStorage.removeItem("vlinkAdminEmail");
+          window.location.href = "index.html";
+        });
+      }
+
+      var form = document.getElementById("adminLoginForm");
+      var adminEmailInput = document.getElementById("adminEmailInput");
+      var adminPasswordInput = document.getElementById("adminPasswordInput");
+      if (!form || !adminEmailInput || !adminPasswordInput) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var adminEmail = (adminEmailInput.value || "").trim();
+        var adminPassword = (adminPasswordInput.value || "").trim();
+
+        if (!adminEmail || !adminPassword) {
+          return;
+        }
+
+        try {
+          sessionStorage.setItem("vlinkAdminAuthenticated", "1");
+          sessionStorage.setItem("vlinkAdminEmail", adminEmail);
+          localStorage.setItem("vlinkAdminAuthenticated", "1");
+          localStorage.setItem("vlinkAdminEmail", adminEmail);
+        } catch (e) {}
+
+        window.location.href = "admin-panel.html";
+      });
+    })();
+  </script>
+</body>
+</html>

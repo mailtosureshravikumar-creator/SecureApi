@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Name Search API | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="pan-gst.css" />
+</head>
+<body class="api-detail-page">
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-shell" aria-label="Company Name Search API details">
+    <section class="detail-hero reveal">
+      <p class="detail-kicker">Company Name Search &amp; Verification API</p>
+      <h1>Company Name Search API</h1>
+      <p>Search and verify company names instantly. Access accurate business identity data for compliance and due diligence.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+
+      <ul class="hero-point-list">
+        <li><strong>Fast Business Lookup:</strong> Search company names instantly to support compliance, onboarding, and due diligence.</li>
+        <li><strong>Risk Reduction:</strong> Validate company existence and reduce exposure to fraudulent or shell entities.</li>
+        <li><strong>API-Driven Automation:</strong> Fully automated service that integrates into your existing workflows.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Instant Company Verification via Trusted Business Data Sources</h2>
+      <ul class="clean-list">
+        <li>Company Name (Registered business name)</li>
+        <li>Registration Number (CIN, Registration ID)</li>
+        <li>Business Status (Active, Inactive, Dissolved)</li>
+        <li>Company Type (Private Limited, Public Limited, LLP, etc.)</li>
+        <li>Registration Date (Date of incorporation)</li>
+      </ul>
+    </section>
+
+    <section class="detail-grid reveal">
+      <article class="status-card">
+        <h3>Company Search API</h3>
+        <ul class="status-list">
+          <li><strong>Status:</strong> <span>Active</span></li>
+          <li><strong>Company Name:</strong> <span>ABC Technologies Pvt Ltd</span></li>
+          <li><strong>Type:</strong> <span>Private Limited</span></li>
+          <li><strong>Result:</strong> <span>View detailed results</span></li>
+        </ul>
+      </article>
+
+      <article class="status-card" id="request-demo">
+        <h3>Request Demo</h3>
+        <p>Click below and submit your details to get Company Name Search API access.</p>
+        <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+      </article>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What is Company Name Search?</h2>
+      <p>Company Name Search is a verification service that enables organizations to validate and retrieve structured information about a business entity using its registered or trade name. The service confirms legal existence, registration status, and core company profile for due diligence, onboarding, and compliance checks.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>How the Search Works</h2>
+      <h3>Input Submission</h3>
+      <ul class="detail-list">
+        <li>User submits a registered name, trade name, or partial company name.</li>
+      </ul>
+
+      <h3>Database Matching</h3>
+      <ul class="detail-list">
+        <li>System searches authoritative registries and official records for matching entities.</li>
+      </ul>
+
+      <h3>Normalization &amp; Matching Logic</h3>
+      <ul class="detail-list">
+        <li>Maps spelling variations, abbreviations, and legal suffixes (Pvt Ltd, LLP, Inc, Ltd).</li>
+      </ul>
+
+      <h3>Result Classification</h3>
+      <ul class="detail-list">
+        <li>Ranks matches by relevance and confidence, including similar-name entities.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Interpreting the Results</h2>
+
+      <h3>1. Company Identification</h3>
+      <ul class="detail-list">
+        <li>Registered legal name</li>
+        <li>Corporate Identification Number (CIN) or equivalent</li>
+        <li>Registration date</li>
+      </ul>
+      <p>Interpretation: Confirms legal identity and official recognition.</p>
+
+      <h3>2. Registration Status</h3>
+      <ul class="detail-list">
+        <li>Active</li>
+        <li>Inactive</li>
+        <li>Struck off</li>
+        <li>Amalgamated or dissolved</li>
+      </ul>
+      <p>Interpretation: Active indicates legitimacy; inactive or struck-off indicates potential risk.</p>
+
+      <h3>3. Entity Type</h3>
+      <ul class="detail-list">
+        <li>Private Limited</li>
+        <li>Public Limited</li>
+        <li>LLP</li>
+        <li>Partnership</li>
+        <li>Proprietorship</li>
+      </ul>
+
+      <h3>4. Registered Address &amp; Jurisdiction</h3>
+      <ul class="detail-list">
+        <li>Official registered office address</li>
+        <li>State or jurisdiction of incorporation</li>
+      </ul>
+
+      <h3>5. Similar or Duplicate Name Matches</h3>
+      <ul class="detail-list">
+        <li>List of similar or closely matching company names</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Significance of Company Name Search</h2>
+      <ul class="detail-list">
+        <li><strong>Strengthens Due Diligence:</strong> Confirms counterparties before engagement.</li>
+        <li><strong>Enhances Compliance:</strong> Supports KYC, AML, and KYB readiness.</li>
+        <li><strong>Reduces Fraud:</strong> Detects fake, misleading, or impersonated company names.</li>
+        <li><strong>Improves Data Accuracy:</strong> Keeps clean records across CRM, risk, and compliance systems.</li>
+        <li><strong>Enables Better Decisions:</strong> Supports credit, onboarding, and procurement decisions.</li>
+      </ul>
+      <p>In trust-critical environments, Company Name Search serves as a foundation for reliable business verification and compliant growth.</p>
+    </section>
+
+    <section class="cta-block reveal">
+      <h2>Ready to Get Started?</h2>
+      <p>Experience our Company Name Search API with a free demo.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="pgAccessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pgAccessTitle">
+      <button class="modal-close" type="button" id="pgCloseAccessModal" aria-label="Close request form">x</button>
+      <h2 id="pgAccessTitle">Request Demo</h2>
+
+      <form class="access-form" id="pgAccessForm" novalidate>
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="pgMobileNumber" name="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="pgMobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="company" />
+        </label>
+        <p class="form-status" id="pgFormStatus" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="pgCancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit Request</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="pgBackToTop" aria-label="Back to top">Top</button>
+  <script src="pan-gst.js"></script>
+</body>
+</html>
+
+
+

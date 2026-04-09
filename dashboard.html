@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard-page.css" />
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var queryAuth = params.get("auth") === "1";
+      var queryUser = params.get("user");
+
+      var sessionLoggedIn = false;
+      var localLoggedIn = false;
+
+      try {
+        sessionLoggedIn = sessionStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      try {
+        localLoggedIn = localStorage.getItem("vlinkLoggedIn") === "1";
+      } catch (e) {}
+
+      if (queryAuth || localLoggedIn) {
+        try {
+          sessionStorage.setItem("vlinkLoggedIn", "1");
+        } catch (e) {}
+
+        if (queryUser) {
+          try {
+            sessionStorage.setItem("vlinkUserEmail", queryUser);
+          } catch (e) {}
+          try {
+            localStorage.setItem("vlinkUserEmail", queryUser);
+          } catch (e) {}
+        }
+      }
+
+      if (!queryAuth && !sessionLoggedIn && !localLoggedIn) {
+        window.location.replace("login.html");
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="app-header" id="siteHeader">
+    <div class="app-header-shell">
+      <a class="app-brand" href="dashboard.html" aria-label="Vlink dashboard">
+        <span class="app-brand-v">V</span>
+        <span class="app-brand-text">Link</span>
+      </a>
+
+      <div class="app-account" id="appAccount">
+        <button class="app-user-chip" id="headerAccountBtn" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span id="headerUserEmail">user@example.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+
+        <div class="account-dropdown" id="accountDropdown" role="menu" hidden>
+          <p class="account-title">WELCOME, <span id="accountWelcomeEmail">USER@EXAMPLE.COM</span></p>
+
+          <a class="account-item is-active" href="dashboard.html" role="menuitem">
+            <span class="account-item-icon">◌</span>
+            <span>Dashboard</span>
+          </a>
+          <a class="account-item" href="admin-panel-login.html" role="menuitem">
+            <span class="account-item-icon">⚙</span>
+            <span>Admin Panel</span>
+          </a>
+          <a class="account-item" href="register.html" role="menuitem" id="dropdownRegisterUserBtn">
+            <span class="account-item-icon">⊕</span>
+            <span>Register User</span>
+          </a>
+          <a class="account-item" href="reset-password.html" role="menuitem" id="dropdownResetPasswordBtn">
+            <span class="account-item-icon">◍</span>
+            <span>Reset Password</span>
+          </a>
+          <a class="account-item" href="leads-management.html" role="menuitem" id="dropdownLeadsBtn">
+            <span class="account-item-icon">◎</span>
+            <span>Leads Management</span>
+          </a>
+          <a class="account-item" href="change-password.html" role="menuitem" id="dropdownChangePasswordBtn">
+            <span class="account-item-icon">⌂</span>
+            <span>Change Password</span>
+          </a>
+
+          <button class="account-item account-item-logout" id="logoutAction" type="button" role="menuitem">
+            <span class="account-item-icon">↪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-main" aria-label="API Dashboard">
+
+    <!-- Row 1: Dashboard Hero -->
+    <section class="dash-hero">
+      <div class="dash-hero-inner">
+        <div class="dash-welcome">
+          <p class="dash-kicker">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12"/><path d="M6 22h12"/><path d="M8 2v6a4 4 0 0 0 1.17 2.83L12 13.66l2.83-2.83A4 4 0 0 0 16 8V2"/><path d="M16 22v-6a4 4 0 0 0-1.17-2.83L12 10.34l-2.83 2.83A4 4 0 0 0 8 16v6"/></svg>
+            API Dashboard
+          </p>
+          <h1 class="dash-title">Welcome,<span id="userEmailDisplay">User</span></h1>
+          <p class="dash-subtitle">Test, manage, and monitor your APIs across multiple environments</p>
+        </div>
+
+        <div class="dash-hero-badge" aria-label="Available APIs count">
+          <span class="dash-hero-badge-value">11</span>
+          <span class="dash-hero-badge-label">Available APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-summary-row" aria-label="Dashboard overview">
+      <article class="dash-stat-card">
+        <div class="dash-stat-icon dash-icon-blue" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 3h8"/></svg>
+        </div>
+        <span class="dash-stat-value">11</span>
+        <span class="dash-stat-label">Total APIs</span>
+      </article>
+
+      <article class="dash-stat-card">
+        <div class="dash-stat-icon dash-icon-purple" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <span class="dash-stat-value">2</span>
+        <span class="dash-stat-label">Categories</span>
+      </article>
+
+      <article class="dash-stat-card">
+        <div class="dash-stat-icon dash-icon-cyan" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 10a4 4 0 0 0-7.73-1.36A3.5 3.5 0 0 0 6.5 15H18a3 3 0 0 0 0-6z"/><path d="m9.5 12.5 1.7 1.7 3.3-3.7"/></svg>
+        </div>
+        <span class="dash-stat-value">2</span>
+        <span class="dash-stat-label">Environments</span>
+      </article>
+
+      <article class="dash-stat-card">
+        <div class="dash-stat-icon dash-icon-pink" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span class="dash-stat-value dash-stat-text">Real-time</span>
+        <span class="dash-stat-label">Testing</span>
+      </article>
+    </section>
+
+    <!-- Row 3: Left Sidebar + Right Content -->
+    <div class="dash-third-row">
+      <aside class="dash-sidebar" aria-label="API endpoint sidebar">
+        <h2 class="dash-sidebar-title">API Endpoints</h2>
+        <ul class="dash-sidebar-list">
+          <li>
+            <span class="dash-side-name">PAN-GST Link Verification</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-api-key="pan-gst">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-api-key="pan-gst">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">GST Number Search</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-api-key="gst-search">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-api-key="gst-search">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Email Verification</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-api-key="email">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-api-key="email">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Name Similarity Match</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-api-key="name">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-api-key="name">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">PAN Verification</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-target="panGstTestingTitle">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Company Name Search</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-target="panGstTestingTitle">Verification</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">PAN OCR</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type is-ocr" type="button" data-target="panGstTestingTitle">OCR</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Aadhaar OCR</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type is-ocr" type="button" data-target="panGstTestingTitle">OCR</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Udyam OCR</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type is-ocr" type="button" data-target="panGstTestingTitle">OCR</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">GST Certificate OCR</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type is-ocr" type="button" data-target="panGstTestingTitle">OCR</button>
+            </div>
+          </li>
+          <li>
+            <span class="dash-side-name">Bank Statement Extraction</span>
+            <div class="dash-method-buttons">
+              <button class="dash-side-method-btn dash-method-post" type="button" data-target="panGstTestingTitle">POST</button>
+              <button class="dash-side-method-btn dash-method-type" type="button" data-target="panGstTestingTitle">Verification</button>
+            </div>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="dash-section dash-ready-card" aria-labelledby="panGstTestingTitle">
+        <div class="dash-ready-copy-block" id="readyIntroBlock">
+          <div class="dash-ready-icon" aria-hidden="true">
+            <span class="dash-ready-cardframe"></span>
+            <span class="dash-ready-cardline dash-ready-cardline-a"></span>
+            <span class="dash-ready-cardline dash-ready-cardline-b"></span>
+            <span class="dash-ready-cardline dash-ready-cardline-c"></span>
+            <span class="dash-ready-check"></span>
+            <span class="dash-ready-scan"></span>
+            <span class="dash-ready-packet dash-ready-packet-a"></span>
+            <span class="dash-ready-packet dash-ready-packet-b"></span>
+            <span class="dash-ready-chip">API</span>
+          </div>
+          <div class="dash-section-header">
+            <div>
+              <h2 id="panGstTestingTitle">Ready to Test Your APIs?</h2>
+              <p class="dash-section-sub">Select an API from the sidebar to start testing. Test your APIs across multiple environments, view detailed responses, and analyze performance metrics in real-time.</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="dash-available-section dash-available-inside" id="availableSectionBlock" aria-labelledby="availableApisTitle">
+          <div class="dash-available-head">
+            <h2 id="availableApisTitle">Available APIs</h2>
+          </div>
+
+          <div class="dash-carousel-shell">
+            <button class="dash-carousel-btn" id="availablePrevBtn" type="button" aria-label="Previous available APIs">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <div class="dash-carousel-viewport">
+              <div class="dash-carousel-track" id="availableApisTrack">
+                <article class="dash-carousel-card" data-target="panGstTestingTitle" tabindex="0">
+                  <div class="dash-carousel-card-top">
+                    <div class="dash-carousel-icon dash-icon-peach" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                    </div>
+                    <h3>Udyam OCR</h3>
+                  </div>
+                  <div class="dash-carousel-pills">
+                    <span class="dash-api-pill dash-api-pill-post">POST</span>
+                    <span class="dash-api-pill dash-api-pill-ocr">OCR</span>
+                  </div>
+                  <p class="dash-carousel-meta">Click to test</p>
+                </article>
+
+                <article class="dash-carousel-card" data-target="panGstTestingTitle" tabindex="0">
+                  <div class="dash-carousel-card-top">
+                    <div class="dash-carousel-icon dash-icon-amber" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v4h4"/><path d="M9 12h6M9 16h6"/></svg>
+                    </div>
+                    <h3>GST Certificate OCR</h3>
+                  </div>
+                  <div class="dash-carousel-pills">
+                    <span class="dash-api-pill dash-api-pill-post">POST</span>
+                    <span class="dash-api-pill dash-api-pill-ocr">OCR</span>
+                  </div>
+                  <p class="dash-carousel-meta">Click to test</p>
+                </article>
+
+                <article class="dash-carousel-card is-featured" data-target="panGstTestingTitle" tabindex="0">
+                  <div class="dash-carousel-card-top">
+                    <div class="dash-carousel-icon dash-icon-lavender" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 10h.01M9 14h.01M9 18h.01M15 10h.01M15 14h.01M15 18h.01"/></svg>
+                    </div>
+                    <h3>Bank Statement Extraction</h3>
+                  </div>
+                  <div class="dash-carousel-pills">
+                    <span class="dash-api-pill dash-api-pill-post">POST</span>
+                    <span class="dash-api-pill dash-api-pill-type alt">Verification</span>
+                  </div>
+                  <p class="dash-carousel-meta">Click to test</p>
+                </article>
+
+                <article class="dash-carousel-card" data-api-key="pan-gst" tabindex="0">
+                  <div class="dash-carousel-card-top">
+                    <div class="dash-carousel-icon dash-icon-lilac" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M7 7h10v10H7z"/><path d="M4 12h3M17 12h3M12 4v3M12 17v3"/></svg>
+                    </div>
+                    <h3>PAN-GST Link Verification</h3>
+                  </div>
+                  <div class="dash-carousel-pills">
+                    <span class="dash-api-pill dash-api-pill-post">POST</span>
+                    <span class="dash-api-pill dash-api-pill-type">Verification</span>
+                  </div>
+                  <p class="dash-carousel-meta">Click to test</p>
+                </article>
+
+                <article class="dash-carousel-card" data-api-key="name" tabindex="0">
+                  <div class="dash-carousel-card-top">
+                    <div class="dash-carousel-icon dash-icon-sky" aria-hidden="true">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Name Similarity Match</h3>
+                  </div>
+                  <div class="dash-carousel-pills">
+                    <span class="dash-api-pill dash-api-pill-post">POST</span>
+                    <span class="dash-api-pill dash-api-pill-type">Verification</span>
+                  </div>
+                  <p class="dash-carousel-meta">Click to test</p>
+                </article>
+              </div>
+            </div>
+
+            <button class="dash-carousel-btn" id="availableNextBtn" type="button" aria-label="Next available APIs">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="dash-quick-tips" id="quickTipsBlock" aria-labelledby="quickTipsTitle">
+          <h3 id="quickTipsTitle">Quick Tips</h3>
+
+          <div class="dash-tip-card">
+            <h4>Multiple Environments</h4>
+            <p>Test across Dev, QA, UAT, and Production</p>
+          </div>
+
+          <div class="dash-tip-card">
+            <h4>Real-time Results</h4>
+            <p>Get instant responses with performance metrics</p>
+          </div>
+
+          <div class="dash-tip-card">
+            <h4>Document Upload</h4>
+            <p>Upload images and PDFs for OCR APIs</p>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <!-- Test API Modal -->
+  <div class="modal-overlay" id="testApiModal" role="dialog" aria-modal="true" aria-labelledby="testModalTitle" aria-hidden="true">
+    <div class="modal-card dash-test-modal">
+      <button class="modal-close" id="closeTestModal" aria-label="Close modal">✕</button>
+      <h2 id="testModalTitle">Test API</h2>
+      <p class="dash-modal-api-name" id="testModalApiName"></p>
+
+      <div class="dash-test-form">
+        <label class="dash-test-label" for="testEndpoint">Endpoint</label>
+        <input type="text" id="testEndpoint" class="dash-test-input" readonly />
+
+        <label class="dash-test-label" for="testPayload">Request Body (JSON)</label>
+        <textarea id="testPayload" class="dash-test-textarea" rows="5" spellcheck="false"></textarea>
+
+        <div class="form-actions">
+          <button class="hero-cta" id="runTestBtn" type="button">Send Request</button>
+          <button class="modal-cancel" id="cancelTestModal" type="button">Cancel</button>
+        </div>
+
+        <div class="dash-test-response" id="testResponse" hidden>
+          <p class="dash-resp-label">Response</p>
+          <pre class="dash-resp-pre" id="testResponseBody"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="dashboard.js?v=20260409h"></script>
+</body>
+</html>

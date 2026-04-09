@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero-area contact-page-main" aria-label="Contact page content">
+    <section class="contact-hero-block">
+      <p class="contact-kicker">Enterprise Support Desk</p>
+      <h1>Connect With Our Product and Integration Team</h1>
+      <p class="contact-lead">Share your requirements and our specialists will guide your onboarding, compliance checks, and API rollout plan.</p>
+
+      <div class="contact-metrics" aria-label="Service metrics">
+        <article>
+          <h3>&lt; 24 Hrs</h3>
+          <p>Average first response</p>
+        </article>
+        <article>
+          <h3>99.9%</h3>
+          <p>Platform uptime SLA</p>
+        </article>
+        <article>
+          <h3>500+</h3>
+          <p>Businesses onboarded</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-layout">
+      <article class="contact-form-panel content-section contact-card">
+        <h2>Send Your Requirement</h2>
+        <p>Fill out the form and our team will get back with a clear next step.</p>
+
+        <form class="access-form" id="contactForm" novalidate>
+          <div class="contact-grid-two">
+            <label>
+              Name *
+              <input type="text" name="name" required />
+            </label>
+
+            <label>
+              Email *
+              <input type="email" name="email" required />
+            </label>
+          </div>
+
+          <div class="contact-grid-two">
+            <label>
+              Phone
+              <input type="tel" id="contactPhone" name="phone" placeholder="Enter exactly 10 digits" inputmode="numeric" />
+              <small class="field-note">Enter exactly 10 digits (numbers only)</small>
+              <small class="field-error" id="contactPhoneError" aria-live="polite">Please enter exactly 10 digits.</small>
+            </label>
+
+            <label>
+              Subject *
+              <input type="text" name="subject" required />
+            </label>
+          </div>
+
+          <label>
+            Message *
+            <textarea id="contactMessage" name="message" maxlength="5000" rows="8" required></textarea>
+            <small class="field-note">Maximum 5000 characters</small>
+            <small class="char-counter" id="messageCounter">0 / 5000 characters</small>
+          </label>
+
+          <div class="form-actions">
+            <button class="hero-cta" type="submit">Send Message</button>
+          </div>
+          <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
+        </form>
+      </article>
+
+      <aside class="contact-info-panel" aria-label="Contact details">
+        <article class="contact-info-card">
+          <h3>Email Support</h3>
+          <p>hr@isystech.net</p>
+        </article>
+        <article class="contact-info-card">
+          <h3>Business Hours</h3>
+          <p>Mon to Fri, 9:30 AM to 6:30 PM IST</p>
+        </article>
+        <article class="contact-info-card">
+          <h3>Office Address</h3>
+          <p>Isys Technologies, Medavakkam, Velachery, Chennai - 600100</p>
+        </article>
+        <article class="contact-info-card">
+          <h3>Best For</h3>
+          <p>Fintech, lending, KYC operations, and enterprise verification workflows.</p>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>
+
+

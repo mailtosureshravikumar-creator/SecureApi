@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leads Management | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin-panel.css" />
+  <style>
+    /* ── Page layout ── */
+    .leads-main {
+      width: min(1400px, 100%);
+      margin: 28px auto 60px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .leads-page-title {
+      margin: 0;
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: #0d1f3c;
+    }
+
+    /* ── Stat cards ── */
+    .leads-stats {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 1100px) { .leads-stats { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px)  { .leads-stats { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-card {
+      border: 1.5px solid;
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      background: #fff;
+    }
+    .stat-card.blue   { border-color: #3b82f6; }
+    .stat-card.teal   { border-color: #14b8a6; }
+    .stat-card.orange { border-color: #f97316; }
+    .stat-card.amber  { border-color: #f59e0b; }
+    .stat-card.grey   { border-color: #9ca3af; }
+    .stat-card.green  { border-color: #22c55e; }
+
+    .stat-number {
+      font-family: "Outfit", sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card.blue   .stat-number { color: #3b82f6; }
+    .stat-card.teal   .stat-number { color: #14b8a6; }
+    .stat-card.orange .stat-number { color: #f97316; }
+    .stat-card.amber  .stat-number { color: #f59e0b; }
+    .stat-card.grey   .stat-number { color: #6b7280; }
+    .stat-card.green  .stat-number { color: #22c55e; }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    /* ── Filter bar ── */
+    .leads-filter-card {
+      border: 1px solid rgba(20, 35, 85, 0.1);
+      border-radius: 14px;
+      background: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      min-width: 160px;
+    }
+    .filter-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #374d86;
+    }
+    .filter-group input,
+    .filter-group select {
+      padding: 9px 12px;
+      border: 1.5px solid rgba(35, 57, 126, 0.18);
+      border-radius: 9px;
+      font: inherit;
+      font-size: 0.9rem;
+      color: #101b3e;
+      background: #fff;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .filter-group input:focus,
+    .filter-group select:focus {
+      border-color: #355fcb;
+      box-shadow: 0 0 0 3px rgba(53, 95, 203, 0.1);
+    }
+    .filter-group input::placeholder { color: #a8b4cc; }
+    .filter-btn-group {
+      display: flex;
+      gap: 8px;
+      padding-bottom: 1px;
+    }
+    .btn-filter {
+      padding: 9px 20px;
+      background: #355fcb;
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 160ms ease, transform 120ms ease;
+    }
+    .btn-filter:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-clear {
+      padding: 9px 20px;
+      background: #6b7280;
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 160ms ease, transform 120ms ease;
+    }
+    .btn-clear:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* ── Table card ── */
+    .leads-table-card {
+      border: 1px solid rgba(20, 35, 85, 0.1);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .leads-table-wrap {
+      overflow-x: auto;
+    }
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    .leads-table thead th {
+      padding: 13px 14px;
+      background: #f8f9fc;
+      color: #374d86;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-align: left;
+      border-bottom: 1px solid rgba(35, 57, 126, 0.1);
+      white-space: nowrap;
+    }
+    .leads-table tbody tr {
+      border-bottom: 1px solid rgba(35, 57, 126, 0.07);
+      transition: background 140ms ease;
+    }
+    .leads-table tbody tr:last-child { border-bottom: none; }
+    .leads-table tbody tr:hover { background: #f5f7fb; }
+    .leads-table tbody td {
+      padding: 14px 14px;
+      font-size: 0.9rem;
+      color: #26385f;
+      vertical-align: top;
+    }
+
+    /* expand toggle */
+    .expand-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: none;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 140ms ease;
+      flex-shrink: 0;
+    }
+    .expand-btn:hover { background: #2563eb; }
+    .expand-btn.open { background: #ef4444; }
+
+    .name-cell { display: flex; align-items: center; gap: 10px; }
+
+    /* source badge */
+    .source-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #374151;
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* status badge */
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .status-badge.new            { background: #14b8a6; color: #fff; }
+    .status-badge.inprocess      { background: #f97316; color: #fff; }
+    .status-badge.callback       { background: #f59e0b; color: #fff; }
+    .status-badge.not-interested { background: #6b7280; color: #fff; }
+    .status-badge.closed         { background: #22c55e; color: #fff; }
+
+    /* update btn */
+    .btn-update {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: #355fcb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 140ms ease;
+    }
+    .btn-update:hover { filter: brightness(1.1); }
+
+    /* expanded comment row */
+    .comment-row { display: none; }
+    .comment-row.open { display: table-row; }
+    .comment-cell {
+      padding: 10px 18px 16px 52px !important;
+      color: #6b7280;
+      font-size: 0.86rem;
+      font-style: italic;
+      background: #f8f9fc;
+    }
+    .comment-cell svg { vertical-align: middle; margin-right: 6px; opacity: 0.6; }
+
+    /* empty state */
+    .leads-empty {
+      text-align: center;
+      padding: 48px 16px;
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    /* Update modal */
+    .leads-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 27, 62, 0.44);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      z-index: 90;
+    }
+    .leads-modal-card {
+      width: min(500px, 100%);
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(20, 35, 85, 0.1);
+      box-shadow: 0 24px 50px rgba(24, 36, 83, 0.24);
+      padding: 28px 28px 24px;
+      position: relative;
+    }
+    .leads-modal-card h2 {
+      margin: 0 0 20px;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.4rem;
+      color: #1a2b5d;
+    }
+    .leads-modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none; border: none;
+      font-size: 1.4rem; color: #6b7280;
+      cursor: pointer; line-height: 1;
+    }
+    .leads-modal-close:hover { color: #1a2b5d; }
+    .modal-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .modal-form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #374d86;
+    }
+    .modal-form-group select,
+    .modal-form-group input,
+    .modal-form-group textarea {
+      padding: 10px 12px;
+      border: 1.5px solid rgba(35, 57, 126, 0.18);
+      border-radius: 9px;
+      font: inherit;
+      font-size: 0.92rem;
+      color: #101b3e;
+      background: #fff;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .modal-form-group select:focus,
+    .modal-form-group input:focus,
+    .modal-form-group textarea:focus {
+      border-color: #355fcb;
+      box-shadow: 0 0 0 3px rgba(53, 95, 203, 0.1);
+    }
+    .modal-form-group textarea { resize: vertical; min-height: 80px; }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .modal-btn-cancel {
+      padding: 10px 20px;
+      background: transparent;
+      color: #355fcb;
+      border: 1.5px solid rgba(53, 95, 203, 0.3);
+      border-radius: 10px;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .modal-btn-save {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #355fcb, #476ed8);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: filter 150ms ease;
+    }
+    .modal-btn-save:hover { filter: brightness(1.06); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="app-header" id="siteHeader">
+    <div class="app-header-shell">
+      <a class="app-brand" href="dashboard.html" aria-label="Vlink dashboard">
+        <span class="app-brand-v">V</span>
+        <span class="app-brand-text">Link</span>
+      </a>
+      <div class="app-account" id="appAccount">
+        <button class="app-user-chip" id="headerAccountBtn" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false" aria-controls="accountDropdown">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+          <span id="headerUserEmail">user@example.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="account-dropdown" id="accountDropdown" role="menu" hidden>
+          <p class="account-title">WELCOME, <span id="accountWelcomeEmail">USER@EXAMPLE.COM</span></p>
+          <a class="account-item" href="dashboard.html" role="menuitem">
+            <span class="account-item-icon">◌</span><span>Dashboard</span>
+          </a>
+          <a class="account-item" href="admin-panel-login.html" role="menuitem">
+            <span class="account-item-icon">⚙</span><span>Admin Panel</span>
+          </a>
+          <button class="account-item" type="button" role="menuitem" id="ddRegisterBtn">
+            <span class="account-item-icon">⊕</span><span>Register User</span>
+          </button>
+          <button class="account-item" type="button" role="menuitem" id="ddResetBtn">
+            <span class="account-item-icon">◍</span><span>Reset Password</span>
+          </button>
+          <button class="account-item is-active" type="button" role="menuitem">
+            <span class="account-item-icon">◎</span><span>Leads Management</span>
+          </button>
+          <button class="account-item account-item-logout" id="logoutAction" type="button" role="menuitem">
+            <span class="account-item-icon">↪</span><span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main ── -->
+  <main class="leads-main" aria-label="Leads Management">
+    <h1 class="leads-page-title">Leads Management</h1>
+
+    <!-- Stat cards -->
+    <div class="leads-stats" id="leadsStats">
+      <div class="stat-card blue">
+        <div class="stat-number" id="statTotal">0</div>
+        <div class="stat-label">Total Leads</div>
+      </div>
+      <div class="stat-card teal">
+        <div class="stat-number" id="statNew">0</div>
+        <div class="stat-label">New</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-number" id="statInprocess">0</div>
+        <div class="stat-label">Inprocess</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-number" id="statCallback">0</div>
+        <div class="stat-label">Callback</div>
+      </div>
+      <div class="stat-card grey">
+        <div class="stat-number" id="statNotInterested">0</div>
+        <div class="stat-label">Not Interested</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-number" id="statClosed">0</div>
+        <div class="stat-label">Closed</div>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="leads-filter-card">
+      <div class="filter-group">
+        <label for="searchInput">Search</label>
+        <input type="text" id="searchInput" placeholder="Name, Email, Company..." />
+      </div>
+      <div class="filter-group">
+        <label for="statusFilter">Status</label>
+        <select id="statusFilter">
+          <option value="">All Statuses</option>
+          <option value="New">New</option>
+          <option value="Inprocess">Inprocess</option>
+          <option value="Callback">Callback</option>
+          <option value="Not Interested">Not Interested</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="pageSizeSelect">Page Size</label>
+        <select id="pageSizeSelect">
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <div class="filter-btn-group">
+        <button class="btn-filter" id="filterBtn" type="button">Filter</button>
+        <button class="btn-clear" id="clearBtn" type="button">Clear</button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="leads-table-card">
+      <div class="leads-table-wrap">
+        <table class="leads-table" id="leadsTable">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Company</th>
+              <th>Source</th>
+              <th>Status</th>
+              <th>Callback Date</th>
+              <th>Created At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody"></tbody>
+        </table>
+        <div class="leads-empty" id="leadsEmpty" hidden>No leads found.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Update Modal -->
+  <div class="leads-modal-overlay" id="updateModal" hidden style="display:none;">
+    <div class="leads-modal-card" role="dialog" aria-modal="true" aria-labelledby="updateModalTitle">
+      <button class="leads-modal-close" id="closeUpdateModal" type="button" aria-label="Close">×</button>
+      <h2 id="updateModalTitle">Update Lead</h2>
+      <input type="hidden" id="updateLeadId" />
+      <div class="modal-form-group">
+        <label for="updateStatus">Status</label>
+        <select id="updateStatus">
+          <option value="New">New</option>
+          <option value="Inprocess">Inprocess</option>
+          <option value="Callback">Callback</option>
+          <option value="Not Interested">Not Interested</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
+      <div class="modal-form-group">
+        <label for="updateCallbackDate">Callback Date</label>
+        <input type="date" id="updateCallbackDate" />
+      </div>
+      <div class="modal-form-group">
+        <label for="updateComment">Comment</label>
+        <textarea id="updateComment" placeholder="Add a comment..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn-cancel" id="cancelUpdateModal" type="button">Cancel</button>
+        <button class="modal-btn-save" id="saveUpdateBtn" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ── Auth header ── */
+      var userEmail = "user@example.com";
+      try { userEmail = sessionStorage.getItem("vlinkUserEmail") || localStorage.getItem("vlinkUserEmail") || "user@example.com"; } catch (e) {}
+      var hue = document.getElementById("headerUserEmail");
+      var awe = document.getElementById("accountWelcomeEmail");
+      if (hue) hue.textContent = userEmail;
+      if (awe) awe.textContent = userEmail.toUpperCase();
+
+      /* ── Dropdown ── */
+      var headerAccountBtn = document.getElementById("headerAccountBtn");
+      var accountDropdown  = document.getElementById("accountDropdown");
+      var appAccount       = document.getElementById("appAccount");
+      var siteHeader       = document.getElementById("siteHeader");
+
+      function setDropdown(open) {
+        if (!accountDropdown || !headerAccountBtn) return;
+        accountDropdown.hidden = !open;
+        headerAccountBtn.setAttribute("aria-expanded", String(open));
+      }
+      if (headerAccountBtn) {
+        headerAccountBtn.addEventListener("click", function () {
+          setDropdown(headerAccountBtn.getAttribute("aria-expanded") !== "true");
+        });
+      }
+      document.addEventListener("click", function (e) {
+        if (appAccount && !appAccount.contains(e.target)) setDropdown(false);
+      });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDropdown(false); });
+      window.addEventListener("scroll", function () {
+        if (siteHeader) siteHeader.classList.toggle("scrolled", window.scrollY > 18);
+      }, { passive: true });
+
+      var ddRegisterBtn = document.getElementById("ddRegisterBtn");
+      if (ddRegisterBtn) ddRegisterBtn.addEventListener("click", function () { setDropdown(false); window.location.href = "register.html"; });
+      var ddResetBtn = document.getElementById("ddResetBtn");
+      if (ddResetBtn) ddResetBtn.addEventListener("click", function () { setDropdown(false); window.location.href = "reset-password.html"; });
+
+      var logoutAction = document.getElementById("logoutAction");
+      if (logoutAction) {
+        logoutAction.addEventListener("click", function () {
+          try { sessionStorage.removeItem("vlinkLoggedIn"); sessionStorage.removeItem("vlinkUserEmail"); } catch (e) {}
+          try { localStorage.removeItem("vlinkLoggedIn");  localStorage.removeItem("vlinkUserEmail");  } catch (e) {}
+          window.location.href = "index.html";
+        });
+      }
+
+      /* ── Sample leads data ── */
+      var leads = [
+        { id: 1, name: "athi",       email: "athikumar@gmail.com",         mobile: "9412151155", company: "asdf",                source: "GST Number Search", status: "New",      callbackDate: "",           createdAt: "04/06/2026 06:36", comments: [] },
+        { id: 2, name: "AEVeOsfMejY",email: "oquxo.mu.x.i.ce.66@gmail.com",mobile: "8174348941", company: "WfcajUwgdaHXVWHorI", source: "Aadhaar OCR",      status: "New",      callbackDate: "",           createdAt: "04/06/2026 06:39", comments: [] },
+        { id: 3, name: "Ravi Kumar", email: "ravi@example.com",            mobile: "9876543210", company: "Tech Corp",           source: "PAN-GST Verify",   status: "Callback", callbackDate: "2026-04-15", createdAt: "04/05/2026 10:22", comments: ["Please call back after 2 PM"] },
+        { id: 4, name: "Priya S",    email: "priya@mail.com",              mobile: "9988776655", company: "StartUp Inc",         source: "Email Verification",status: "Inprocess",callbackDate: "",           createdAt: "04/04/2026 14:10", comments: [] },
+        { id: 5, name: "Mohamed A",  email: "moahmed@biz.in",              mobile: "9123456789", company: "BizSoft",             source: "PAN OCR",          status: "Closed",   callbackDate: "",           createdAt: "04/03/2026 09:05", comments: ["Deal closed successfully"] },
+      ];
+
+      /* keep expanded state */
+      var expandedIds = {};
+
+      /* ── Filters ── */
+      var searchInput   = document.getElementById("searchInput");
+      var statusFilter  = document.getElementById("statusFilter");
+      var pageSizeSelect= document.getElementById("pageSizeSelect");
+      var filterBtn     = document.getElementById("filterBtn");
+      var clearBtn      = document.getElementById("clearBtn");
+
+      function getFiltered() {
+        var q      = (searchInput  ? searchInput.value.trim().toLowerCase()  : "");
+        var status = (statusFilter ? statusFilter.value : "");
+        var size   = parseInt(pageSizeSelect ? pageSizeSelect.value : "20", 10);
+        var result = leads.filter(function (l) {
+          var matchQ = !q ||
+            l.name.toLowerCase().includes(q) ||
+            l.email.toLowerCase().includes(q) ||
+            l.company.toLowerCase().includes(q);
+          var matchS = !status || l.status === status;
+          return matchQ && matchS;
+        });
+        return result.slice(0, size);
+      }
+
+      /* ── Stats ── */
+      function updateStats() {
+        document.getElementById("statTotal").textContent        = leads.length;
+        document.getElementById("statNew").textContent          = leads.filter(function(l){return l.status==="New";}).length;
+        document.getElementById("statInprocess").textContent    = leads.filter(function(l){return l.status==="Inprocess";}).length;
+        document.getElementById("statCallback").textContent     = leads.filter(function(l){return l.status==="Callback";}).length;
+        document.getElementById("statNotInterested").textContent= leads.filter(function(l){return l.status==="Not Interested";}).length;
+        document.getElementById("statClosed").textContent       = leads.filter(function(l){return l.status==="Closed";}).length;
+      }
+
+      /* ── Status badge class ── */
+      function statusClass(s) {
+        return ({ "New":"new","Inprocess":"inprocess","Callback":"callback","Not Interested":"not-interested","Closed":"closed" })[s] || "new";
+      }
+
+      /* ── Render table ── */
+      var tbody = document.getElementById("leadsTableBody");
+      var emptyEl = document.getElementById("leadsEmpty");
+
+      function renderTable() {
+        var rows = getFiltered();
+        if (!tbody) return;
+        if (rows.length === 0) {
+          tbody.innerHTML = "";
+          if (emptyEl) { emptyEl.hidden = false; }
+          return;
+        }
+        if (emptyEl) emptyEl.hidden = true;
+
+        var html = "";
+        rows.forEach(function (l) {
+          var isOpen = expandedIds[l.id];
+          var commentText = l.comments.length ? l.comments[l.comments.length - 1] : "No comments available";
+          html += '<tr class="lead-row" data-id="' + l.id + '">';
+          html += '<td><button class="expand-btn' + (isOpen ? " open" : "") + '" data-expand="' + l.id + '">' + (isOpen ? "−" : "−") + '</button></td>';
+          html += '<td><div class="name-cell">' + esc(l.name) + '</div></td>';
+          html += '<td>' + esc(l.email) + '</td>';
+          html += '<td>' + esc(l.mobile) + '</td>';
+          html += '<td>' + esc(l.company) + '</td>';
+          html += '<td><span class="source-badge">' + esc(l.source) + '</span></td>';
+          html += '<td><span class="status-badge ' + statusClass(l.status) + '">' + esc(l.status) + '</span></td>';
+          html += '<td>' + (l.callbackDate || "−") + '</td>';
+          html += '<td>' + esc(l.createdAt) + '</td>';
+          html += '<td><button class="btn-update" data-update="' + l.id + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Update</button></td>';
+          html += '</tr>';
+          html += '<tr class="comment-row' + (isOpen ? " open" : "") + '" data-comment-id="' + l.id + '">';
+          html += '<td class="comment-cell" colspan="10"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' + esc(commentText) + '</td>';
+          html += '</tr>';
+        });
+        tbody.innerHTML = html;
+      }
+
+      function esc(str) {
+        return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      }
+
+      /* ── Table click delegation ── */
+      if (tbody) {
+        tbody.addEventListener("click", function (e) {
+          /* expand toggle */
+          var expandBtn = e.target.closest("[data-expand]");
+          if (expandBtn) {
+            var id = Number(expandBtn.dataset.expand);
+            expandedIds[id] = !expandedIds[id];
+            renderTable();
+            return;
+          }
+          /* update */
+          var updateBtn = e.target.closest("[data-update]");
+          if (updateBtn) {
+            var lid = Number(updateBtn.dataset.update);
+            openUpdateModal(lid);
+          }
+        });
+      }
+
+      /* Filter / Clear */
+      if (filterBtn) filterBtn.addEventListener("click", renderTable);
+      if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+          if (searchInput)  searchInput.value  = "";
+          if (statusFilter) statusFilter.value = "";
+          if (pageSizeSelect) pageSizeSelect.value = "20";
+          renderTable();
+        });
+      }
+
+      /* ── Update Modal ── */
+      var updateModal   = document.getElementById("updateModal");
+      var updateLeadId  = document.getElementById("updateLeadId");
+      var updateStatus  = document.getElementById("updateStatus");
+      var updateCallback= document.getElementById("updateCallbackDate");
+      var updateComment = document.getElementById("updateComment");
+
+      function setModal(open) {
+        if (!updateModal) return;
+        updateModal.hidden = !open;
+        updateModal.style.display = open ? "grid" : "none";
+      }
+
+      function openUpdateModal(id) {
+        var lead = leads.find(function(l){ return l.id === id; });
+        if (!lead) return;
+        if (updateLeadId) updateLeadId.value = id;
+        if (updateStatus) updateStatus.value = lead.status;
+        if (updateCallback) updateCallback.value = lead.callbackDate || "";
+        if (updateComment) updateComment.value = "";
+        setModal(true);
+      }
+
+      var closeUpdateModal = document.getElementById("closeUpdateModal");
+      var cancelUpdateModal= document.getElementById("cancelUpdateModal");
+      var saveUpdateBtn    = document.getElementById("saveUpdateBtn");
+
+      if (closeUpdateModal)  closeUpdateModal.addEventListener("click",  function(){ setModal(false); });
+      if (cancelUpdateModal) cancelUpdateModal.addEventListener("click", function(){ setModal(false); });
+      if (updateModal) {
+        updateModal.addEventListener("click", function(e){ if(e.target===updateModal) setModal(false); });
+      }
+      document.addEventListener("keydown", function(e){ if(e.key==="Escape") setModal(false); });
+
+      if (saveUpdateBtn) {
+        saveUpdateBtn.addEventListener("click", function () {
+          var id = Number(updateLeadId ? updateLeadId.value : 0);
+          var lead = leads.find(function(l){ return l.id===id; });
+          if (!lead) return;
+          lead.status       = updateStatus  ? updateStatus.value   : lead.status;
+          lead.callbackDate = updateCallback? updateCallback.value  : lead.callbackDate;
+          var comment = updateComment ? updateComment.value.trim() : "";
+          if (comment) lead.comments.push(comment);
+          setModal(false);
+          updateStats();
+          renderTable();
+        });
+      }
+
+      /* ── Init ── */
+      updateStats();
+      renderTable();
+    })();
+  </script>
+</body>
+</html>

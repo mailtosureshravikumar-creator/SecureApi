@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAN Card Verification API | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="pan-gst.css" />
+</head>
+<body class="api-detail-page">
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-shell" aria-label="PAN Verification API details">
+    <section class="detail-hero reveal">
+      <p class="detail-kicker">PAN Card Verification API</p>
+      <h1>PAN Verification API</h1>
+      <p>Verify PAN numbers instantly to fetch name and status. Ensure secure KYC, compliance, and fraud prevention.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+
+      <ul class="hero-point-list">
+        <li><strong>Instant Verification:</strong> Verify PAN numbers instantly to fetch name and status for secure onboarding and compliance.</li>
+        <li><strong>Fraud Prevention:</strong> Reduce identity fraud and data inaccuracies by validating PAN details programmatically.</li>
+        <li><strong>API-Driven Automation:</strong> Fully automated, API-driven service for seamless workflow integration.</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Instant PAN Number Verification via Trusted Data Sources</h2>
+      <ul class="clean-list">
+        <li>PAN Number (Permanent Account Number)</li>
+        <li>Full Name (Name associated with PAN)</li>
+        <li>Status (Active, Inactive, or Invalid)</li>
+        <li>Category (Individual, Company, etc.)</li>
+        <li>Verification Timestamp (Date and time of verification)</li>
+      </ul>
+    </section>
+
+    <section class="detail-grid reveal">
+      <article class="status-card">
+        <h3>PAN Verification API</h3>
+        <ul class="status-list">
+          <li><strong>Status:</strong> <span>Valid</span></li>
+          <li><strong>Name:</strong> <span>John Doe</span></li>
+          <li><strong>Category:</strong> <span>Individual</span></li>
+          <li><strong>Result:</strong> <span>View detailed results</span></li>
+        </ul>
+      </article>
+
+      <article class="status-card" id="request-demo">
+        <h3>Request Demo</h3>
+        <p>Click below and submit your details to get PAN Verification API access.</p>
+        <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+      </article>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>What Is PAN Verification</h2>
+      <p>PAN Verification is the process of validating a Permanent Account Number (PAN) issued by the Income Tax Department of India to confirm the authenticity of an individual or business entity.</p>
+      <p>The verification ensures that the PAN provided during onboarding or transactions is valid and active, matches official government records, and belongs to the correct individual or organization. PAN verification serves as a foundational step in KYC, tax compliance, and financial risk assessment workflows.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>How PAN Verification Works</h2>
+      <p>The PAN Verification API securely validates PAN details in real time by cross-checking the submitted PAN number against authorized government data sources.</p>
+      <p>The process delivers instant confirmation of PAN validity, holder name, PAN status, and PAN category (individual, company, firm, trust, etc.), enabling confident onboarding and compliance decisions.</p>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Interpretation of PAN Verification Results</h2>
+      <h3>PAN Status</h3>
+      <ul class="detail-list">
+        <li><strong>Valid &amp; Active:</strong> PAN exists and is currently active.</li>
+        <li><strong>Invalid:</strong> PAN does not exist or is incorrectly entered.</li>
+        <li><strong>Inactive:</strong> PAN is deactivated, surrendered, or blocked.</li>
+      </ul>
+
+      <h3>Name Matching</h3>
+      <ul class="detail-list">
+        <li>Confirms whether provided name matches the official PAN record.</li>
+        <li>Supports full match, partial match, and mismatch indicators.</li>
+        <li>Helps detect identity discrepancies and impersonation attempts.</li>
+      </ul>
+
+      <h3>PAN Category</h3>
+      <ul class="detail-list">
+        <li>Individual</li>
+        <li>Company</li>
+        <li>Partnership Firm</li>
+        <li>Trust</li>
+        <li>Government Entity</li>
+      </ul>
+
+      <h3>Data Confidence Indicators</h3>
+      <ul class="detail-list">
+        <li>Automated approvals</li>
+        <li>Manual review triggers</li>
+        <li>Risk-based decisioning</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Significance of PAN Verification</h2>
+
+      <h3>Regulatory Compliance</h3>
+      <ul class="detail-list">
+        <li>KYC and AML regulations</li>
+        <li>RBI, SEBI, and IRDAI guidelines</li>
+        <li>Income Tax and financial reporting norms</li>
+      </ul>
+
+      <h3>Fraud Prevention</h3>
+      <ul class="detail-list">
+        <li>Prevent identity fraud and impersonation</li>
+        <li>Detect forged or inactive PANs</li>
+        <li>Reduce onboarding of high-risk customers</li>
+      </ul>
+
+      <h3>Trustworthy Customer Onboarding</h3>
+      <ul class="detail-list">
+        <li>Authentic customer identities</li>
+        <li>Faster and frictionless onboarding</li>
+        <li>Reduced manual document checks</li>
+      </ul>
+
+      <h3>Improved Credit &amp; Risk Assessment</h3>
+      <ul class="detail-list">
+        <li>Reliable customer profiling</li>
+        <li>Accurate credit evaluations</li>
+        <li>Informed lending and underwriting decisions</li>
+      </ul>
+
+      <h3>Operational Efficiency</h3>
+      <ul class="detail-list">
+        <li>Eliminates manual verification processes</li>
+        <li>Reduces turnaround time</li>
+        <li>Improves data accuracy across internal systems</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Key Use Cases</h2>
+      <ul class="detail-list">
+        <li>Digital KYC and eKYC workflows</li>
+        <li>Customer onboarding for banks, NBFCs, and fintechs</li>
+        <li>Loan processing and credit assessment</li>
+        <li>Tax compliance and reporting</li>
+        <li>Vendor and partner verification</li>
+      </ul>
+    </section>
+
+    <section class="content-section detail-section reveal">
+      <h2>Enterprise-Ready PAN Verification API</h2>
+      <ul class="detail-list">
+        <li>Real-time verification with high accuracy</li>
+        <li>Secure and scalable REST-based API</li>
+        <li>Easy integration with onboarding and CRM systems</li>
+        <li>Designed for high-volume enterprise use cases</li>
+      </ul>
+    </section>
+
+    <section class="cta-block reveal">
+      <h2>Ready to Get Started?</h2>
+      <p>Experience our PAN Card Verification API with a free demo.</p>
+      <a class="hero-cta access-trigger" href="#">Request Access Key</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="pgAccessModal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pgAccessTitle">
+      <button class="modal-close" type="button" id="pgCloseAccessModal" aria-label="Close request form">x</button>
+      <h2 id="pgAccessTitle">Request Demo</h2>
+
+      <form class="access-form" id="pgAccessForm" novalidate>
+        <label>
+          Name *
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email *
+          <input type="email" name="email" placeholder="example@email.com" required />
+        </label>
+        <label>
+          Mobile Number *
+          <input type="tel" id="pgMobileNumber" name="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required />
+          <small class="field-error" id="pgMobileError" aria-live="polite">Please enter a valid 10-digit mobile number.</small>
+        </label>
+        <label>
+          Company Name
+          <input type="text" name="company" />
+        </label>
+        <p class="form-status" id="pgFormStatus" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button class="modal-cancel" type="button" id="pgCancelAccessModal">Cancel</button>
+          <button class="hero-cta" type="submit">Submit Request</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <button class="back-to-top" id="pgBackToTop" aria-label="Back to top">Top</button>
+  <script src="pan-gst.js"></script>
+</body>
+</html>
+
+
+

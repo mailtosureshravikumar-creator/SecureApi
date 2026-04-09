@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Vlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="faq.css" />
+</head>
+<body class="faq-page">
+  <header class="site-header" id="siteHeader">
+    <div class="header-shell">
+      <a class="brand" href="index.html#home" aria-label="Vlink home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">Vlink</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><a href="index.html#home">Home</a></li>
+
+          <li class="has-dropdown" id="apiMarketplaceItem">
+            <button class="dropdown-trigger" id="apiDropdownTrigger" aria-expanded="false" aria-controls="apiDropdown">
+              API Marketplace
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" id="apiDropdown" aria-label="API Marketplace list">
+              <li><a href="pan-gst.html">PAN-GST Link Verification</a></li>
+              <li><a href="gst-number-search.html">GST Number Search</a></li>
+              <li><a href="email-verification.html">Email Verification</a></li>
+              <li><a href="name-similarity-match.html">Name Similarity Match</a></li>
+              <li><a href="pan-verification.html">PAN Verification</a></li>
+              <li><a href="company-name-search.html">Company Name Search</a></li>
+              <li><a href="pan-ocr.html">PAN OCR</a></li>
+              <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+              <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+              <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+            </ul>
+          </li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="faq-main" aria-label="Frequently Asked Questions">
+    <section class="faq-hero reveal">
+      <p class="faq-kicker">Support</p>
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions about our verification APIs and services.</p>
+    </section>
+
+    <section class="faq-group reveal" aria-labelledby="panGstFaqTitle">
+      <h2 id="panGstFaqTitle">PAN-GST Link Verification</h2>
+
+      <article class="faq-item">
+        <h3>What is PAN-GST link verification?</h3>
+        <p>It checks whether a PAN number is linked with an active GST registration issued by tax authorities.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Why is PAN-GST linkage important?</h3>
+        <p>It ensures tax compliance, prevents fake GST registrations, and validates genuine businesses.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Who should use PAN-GST verification?</h3>
+        <p>NBFCs, fintechs, enterprises, lenders, marketplaces, and compliance teams.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Is PAN-GST verification real-time?</h3>
+        <p>Yes, results are fetched in near real time from authoritative sources.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Can this be automated using an API?</h3>
+        <p>Yes, the service is fully API-driven and supports automation.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Does it work for inactive GST numbers?</h3>
+        <p>Yes, it also indicates inactive or cancelled GST registrations.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Is manual documentation required?</h3>
+        <p>No, the verification is completely digital.</p>
+      </article>
+      <article class="faq-item">
+        <h3>How accurate is the verification?</h3>
+        <p>Accuracy is high as data is sourced from official government records.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Can this reduce GST fraud?</h3>
+        <p>Yes, it helps identify fake or mismatched PAN-GST records.</p>
+      </article>
+      <article class="faq-item">
+        <h3>Is it suitable for bulk verification?</h3>
+        <p>Yes, it supports high-volume and bulk verification use cases.</p>
+      </article>
+    </section>
+
+    <section class="faq-group reveal" aria-labelledby="otherFaqTopicsTitle">
+      <h2 id="otherFaqTopicsTitle">Other API Topics</h2>
+      <ul class="faq-topic-list">
+        <li>GST Number Details Search</li>
+        <li>Email Verification (MX, Domain &amp; Inbox)</li>
+        <li>Name Similarity Match</li>
+        <li>PAN Number Verification</li>
+        <li>Company Name Search</li>
+        <li>PAN Card OCR</li>
+        <li>Aadhaar OCR</li>
+        <li>Udyam Certificate OCR</li>
+        <li>GST Certificate OCR</li>
+        <li>Bank Statement Extraction</li>
+      </ul>
+    </section>
+
+    <section class="faq-cta reveal" aria-labelledby="faqCtaTitle">
+      <div>
+        <h2 id="faqCtaTitle">Still Have Questions?</h2>
+        <p>Contact us if you need more information about our services.</p>
+      </div>
+      <a class="faq-contact-btn" href="contact.html">Contact Us</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-logo" href="index.html#home" aria-label="Vlink home">
+          <span class="brand-mark">V</span>
+          <span class="brand-text">Vlink</span>
+        </a>
+        <p class="footer-copy">Secure verification APIs for regulated businesses, fintech teams, and enterprise onboarding workflows.</p>
+        <div class="footer-social">
+          <a class="footer-social-link" href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="footer-social-link" href="#" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="footer-social-link" href="#" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-cols" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>API Marketplace</h4>
+          <ul>
+            <li><a href="pan-gst.html">PAN-GST Verification</a></li>
+            <li><a href="gst-number-search.html">GST Number Search</a></li>
+            <li><a href="email-verification.html">Email Verification</a></li>
+            <li><a href="pan-verification.html">PAN Verification</a></li>
+            <li><a href="pan-ocr.html">PAN OCR</a></li>
+            <li><a href="aadhaar-ocr.html">Aadhaar OCR</a></li>
+            <li><a href="udyam-ocr.html">Udyam OCR</a></li>
+            <li><a href="gst-certificate-ocr.html">GST Certificate OCR</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom" aria-label="Legal information">
+      <p>&copy; 2026 Isys Technologies. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="products.html">Products</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">Top</button>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
