@@ -245,7 +245,7 @@ body {
 .hero-area {
   width: min(1200px, 100%);
   margin: 36px auto 0;
-  padding: 0 16px 70px;
+  padding: 0 0 70px;
 }
 
 .about-page-main {
